@@ -3,8 +3,9 @@ import type { AppProps } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import PlayerLayout from "../components/playerLayout";
 import "reset-css"; // For resetting css
-import Image from 'next/image';
+import Image from "next/image";
 
+// Extending theme of Chakra UI
 const theme = extendTheme({
   colors: {
     gray: {
@@ -35,9 +36,10 @@ const theme = extendTheme({
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
+    // This will provide theme to all are component
     <ChakraProvider theme={theme}>
+      {/* We are nesting component inside Player Layout because player will not change when inside component changes */}
       <PlayerLayout>
-      
         <Component {...pageProps} />
       </PlayerLayout>
     </ChakraProvider>
