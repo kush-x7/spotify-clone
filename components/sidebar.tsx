@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import {
   Box,
@@ -14,10 +13,11 @@ import {
 import {
   MdHome,
   MdSearch,
-  MdLibraryAdd,
   MdLibraryMusic,
+  MdPlaylistAdd,
   MdFavorite,
 } from "react-icons/md";
+import SidebarList from "./sidebarList";
 
 const navMenu = [
   {
@@ -37,6 +37,19 @@ const navMenu = [
   },
 ];
 
+const musicMenu = [
+  {
+    name: "Create Playlist",
+    icon: MdPlaylistAdd,
+    route: "/",
+  },
+  {
+    name: "Favorites",
+    icon: MdFavorite,
+    route: "/favorite ",
+  },
+];
+
 const Sidebar = () => {
   return (
     <Box
@@ -48,35 +61,24 @@ const Sidebar = () => {
       color="gray"
     >
       {/* Box just for giving padding*/}
-      <Box paddingY="20px" paddingLeft="24px">
+      <Box paddingY="20px" paddingLeft="24px" height="100%">
         {/* 1-> Logo box */}
         <Box marginBottom="20px">
           <Image src="/logo.svg" alt="logo" height={"60"} width={"120"} />
         </Box>
 
-        {/* 2-> For Nav Content */}
-        <Box marginBottom="20px">
-          {/* Spacing between list element [spacing] */}
-          <List spacing={2}>
-            {navMenu.map((menu) => (
-              <ListItem paddingX="20px" fontSize="16px" key={menu.name}>
-                {/* Link box will make the whole element clickable */}
-                <LinkBox>
-                  {/* passHref means passing the link to child */}
-                  <Link href={menu.route} passHref>
-                    <LinkOverlay>
-                      <ListIcon
-                        as={menu.icon}
-                        color="white"
-                        marginRight="20px"
-                      />
-                      {menu.name}
-                    </LinkOverlay>
-                  </Link>
-                </LinkBox>
-              </ListItem>
-            ))}
-          </List>
+        {/* 2-> First list item [Home Search Your Library]*/}
+        <SidebarList listItemObjects={navMenu} />
+
+        <Divider bg="gray.800" marginY="20px" />
+
+        {/* 3 -> Second list item [Home Search Your Library]  */}
+        <SidebarList listItemObjects={musicMenu} />
+
+        <Box height="66%" overflowY="auto" paddingY="20px">
+          {new Array(50).fill(1).map((value, index) => (
+            <h1>{index}</h1>
+          ))}
         </Box>
       </Box>
     </Box>
