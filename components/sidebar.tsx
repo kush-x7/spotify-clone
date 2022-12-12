@@ -75,9 +75,9 @@ const Sidebar = () => {
         {/* 3 -> Second list item [Home Search Your Library]  */}
         <SidebarList listItemObjects={musicMenu} />
 
-        <Box height="66%" overflowY="auto" paddingY="20px">
+        <Box height="61%" overflowY="auto" paddingY="20px">
           {new Array(50).fill(1).map((value, index) => (
-            <h1>{index}</h1>
+            <h1 key="index">{index}</h1>
           ))}
         </Box>
       </Box>

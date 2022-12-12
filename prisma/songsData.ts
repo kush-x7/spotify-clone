@@ -3,11 +3,11 @@ export const artistsData: {
   songs: any[];
 }[] = [
   {
-    name: "Glitch",
+    name: "Kush",
     songs: [
       {
         name: "Fermi Paradox",
-        duration: 235,
+        duration: 700,
 
         url: "https://dl.dropboxusercontent.com/s/7xmpwvvek6szx5n/fermi-paradox.mp3?dl=0",
       },

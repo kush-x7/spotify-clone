@@ -2,8 +2,7 @@ import React from "react";
 import type { AppProps } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import PlayerLayout from "../components/playerLayout";
-import "reset-css"; // For resetting css
-import Image from "next/image";
+import "reset-css"; // Package For resetting css 
 
 // Extending theme of Chakra UI
 const theme = extendTheme({
